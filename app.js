@@ -17,14 +17,13 @@ if (result.error) {
 // ========================================== custom packages  ========================================== //
 const db = require(`./config/db.config`);
 
-
 // ========================================== create express middleware  ========================================== //
 const app = express();
 
 // ====================================== db configurations ========================================= //
 mongoose.Promise = global.Promise;
 const connectDB = async () => {
-    await mongoose.connect(db.url, db.options).then(() => {
+    await mongoose.connect(db.url_development, db.options).then(() => {
         console.log(`DB Connected....`);
     }).catch((err)=>{
         console.log(`Connection timed out.`);
