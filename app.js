@@ -9,9 +9,11 @@ const dotenv = require(`dotenv`);
 const mongoose = require(`mongoose`);
 
 // ========================================== configure environment variables  ========================================== //
-const result = dotenv.config({path: `./config/.env`});
-if (result.error) {
-    throw result.error;
+if(process.env.PRODUCTION_MODE){
+    const result = dotenv.config({path: `./config/.env`});
+    if (result.error) {
+        throw result.error;
+    }
 }
 
 // ========================================== custom packages  ========================================== //
