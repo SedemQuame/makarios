@@ -23,7 +23,7 @@ const app = express();
 // ====================================== db configurations ========================================= //
 mongoose.Promise = global.Promise;
 const connectDB = async () => {
-    await mongoose.connect(db.url_development, db.options).then(() => {
+    await mongoose.connect(db.url, db.options).then(() => {
         console.log(`DB Connected....`);
     }).catch((err)=>{
         console.log(`Connection timed out.`);
