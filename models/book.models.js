@@ -37,7 +37,7 @@ const bookSchema = new mongoose.Schema({
     supportedLanguages: [{type: String}],
     book,
     date,
-    feedback,
+    feedback: [feedback],
 });
 
 bookSchema.plugin(passportLocalMongoose);

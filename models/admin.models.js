@@ -6,11 +6,15 @@ const passportLocalMongoose = require(`passport-local-mongoose`);
 // ==================================== creating database schema=======================================//
 
 // =========== sub schemas =========/
+const contactSchema = new mongoose.Schema({
+    email: {type: String},
+    phoneNumber: {type: String},
+});
+
 const adminSchema = new mongoose.Schema({
     name: {type: String},
-    email: {type: String},
     password: {type: String},
-    phoneNumber: {type: String},
+    contact: {type: contactSchema},
     authenticationToken: {type: String},
     accessLevel: {type: String},
 });

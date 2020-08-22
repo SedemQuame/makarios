@@ -1,42 +1,17 @@
-// jshint esversion:6 
+// jshint esversion:7
 // ================================ creating application routes ===================================//
 module.exports = app => {
-    const bus = require(`../controllers/bus.controllers`);
+    const admin = require(`../controllers/admin.controllers`);
 
-// create routes
-    app.route(`/createBus`)
-        .post(bus.createBus);
+    // register admin account
+    app.route(`/registerAdmin`)
+        .post(admin.registerAdmin);
 
-    app.route(`/buses`)
-        .get(bus.getAllBus); 
+    // login to admin account
+    app.route(`/adminLogin`)
+        .post(admin.adminLogin);         
 
-    app.route(`/createPassengerReview`)
-        .post(bus.createPassengerReview);
-
-//  delete routes
-    app.route(`/deleteBusById/:busId`)
-        .post(bus.deleteBusById);
-
-// get routes
-    app.route(`/getAllBus`)
-        .get(bus.getAllBus);
-
-    app.route(`/getBusById/:busId`)
-        .post(bus.getBusById);
-
-    app.route(`/getBusMetaData`)
-        .get(bus.getBusMetaData); 
-        
-    // app.route(`/getBusAndDriverInfo`)
-    //     .get(bus.getBusAndDriverInfo);
-
-    app.route(`/searchBuses`)
-        .get(bus.searchBuses);
-
-    // app.route(`/getBusByName`)
-    //     .get(bus.getBusBy)
-        
-// update routes
-    app.route(`/updateBusInfo`)
-        .post(bus.uploadBusInfo);
+    // view user subscription
+    app.route(`/viewUserSubscription`)
+        .get(admin.viewUserSubscription);
 };

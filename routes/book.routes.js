@@ -1,42 +1,23 @@
 // jshint esversion:6 
 // ================================ creating application routes ===================================//
 module.exports = app => {
-    const bus = require(`../controllers/bus.controllers`);
+    const book = require(`../controllers/book.controllers`);
+    //  view book meta data
+    app.route(`/viewAllBookMetaData`)
+        .get(book.viewAllBookMetaData);
 
-// create routes
-    app.route(`/createBus`)
-        .post(bus.createBus);
+    app.route(`/viewBookData/:bookId`)
+        .get(book.viewBookData);
 
-    app.route(`/buses`)
-        .get(bus.getAllBus); 
+    // delete all books
+    app.route(`/deleteAllBook`)
+        .post(book.deleteAllBooks);
 
-    app.route(`/createPassengerReview`)
-        .post(bus.createPassengerReview);
+    // delete book by id
+    app.route(`/deleteBook/:bookId`)
+        .post(book.deleteBook);
 
-//  delete routes
-    app.route(`/deleteBusById/:busId`)
-        .post(bus.deleteBusById);
-
-// get routes
-    app.route(`/getAllBus`)
-        .get(bus.getAllBus);
-
-    app.route(`/getBusById/:busId`)
-        .post(bus.getBusById);
-
-    app.route(`/getBusMetaData`)
-        .get(bus.getBusMetaData); 
-        
-    // app.route(`/getBusAndDriverInfo`)
-    //     .get(bus.getBusAndDriverInfo);
-
-    app.route(`/searchBuses`)
-        .get(bus.searchBuses);
-
-    // app.route(`/getBusByName`)
-    //     .get(bus.getBusBy)
-        
-// update routes
-    app.route(`/updateBusInfo`)
-        .post(bus.uploadBusInfo);
+    // upload book routes (todo)
+    // app.route(`/uploadBookMetaData/:bookId`)
+    //     .post(book.uploadBookMetaData);        
 };

@@ -3,40 +3,16 @@
 module.exports = app => {
     const user = require(`../controllers/user.controllers`);
 
-// create routes
-    app.route(`/authenticateUser`)
-        .post(bus.createBus);
+    // create routes
+    app.route(`/createUserInfo`)
+        .get(user.createUser);
 
-    app.route(`/buses`)
-        .get(bus.getAllBus); 
+    app.route(`/getAllUserSubscriptions`)
+        .get(user.getAllUserSubscriptions);
 
-    app.route(`/createPassengerReview`)
-        .post(bus.createPassengerReview);
-
-//  delete routes
-    app.route(`/deleteBusById/:busId`)
-        .post(bus.deleteBusById);
-
-// get routes
-    app.route(`/getAllBus`)
-        .get(bus.getAllBus);
-
-    app.route(`/getBusById/:busId`)
-        .post(bus.getBusById);
-
-    app.route(`/getBusMetaData`)
-        .get(bus.getBusMetaData); 
+    app.route(`/getAllBookSubscription/:userId`)
+        .get(user.getAllBookSubscription);
         
-    // app.route(`/getBusAndDriverInfo`)
-    //     .get(bus.getBusAndDriverInfo);
-
-    app.route(`/searchBuses`)
-        .get(bus.searchBuses);
-
-    // app.route(`/getBusByName`)
-    //     .get(bus.getBusBy)
-        
-// update routes
-    app.route(`/updateBusInfo`)
-        .post(bus.uploadBusInfo);
+    app.route(`/subscripeToReadBook/:userId/:bookId/:payment_method/:reference`)
+        .get(user.subscripeToReadBook);
 };
