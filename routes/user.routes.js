@@ -1,5 +1,6 @@
 // jshint esversion:6 
 // ================================ creating application routes ===================================//
+
 module.exports = app => {
     const user = require(`../controllers/user.controllers`);
 

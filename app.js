@@ -39,6 +39,12 @@ app.all(`/`, (req, res)=>{
     res.end(`Makarios homepage`);
 });
 
+//====================================== registering required routes ========================================//
+require(`./routes/admin.routes`)(app);
+require(`./routes/book.routes`)(app);
+require(`./routes/bookStore.routes`)(app);
+require(`./routes/user.routes`)(app);
+
 // handling requests
 app.use((req, res)=>{
     res.end(`Welcome to makarios`);

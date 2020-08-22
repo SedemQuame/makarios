@@ -1,7 +1,6 @@
 // jshint esversion:7
 
 const admin = require(`./../models/admin.models`);
-const user = require(`./../models/user.models`);
 
 exports.registerAdmin = (req, res, next) => {
     bcrypt.hash(req.body.password, SALT_ROUNDS, (err, hash) => {

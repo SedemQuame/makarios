@@ -10,8 +10,4 @@ module.exports = app => {
     // login to admin account
     app.route(`/adminLogin`)
         .post(admin.adminLogin);         
-
-    // view user subscription
-    app.route(`/viewUserSubscription`)
-        .get(admin.viewUserSubscription);
 };

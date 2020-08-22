@@ -1,9 +1,10 @@
 // jshint esversion:7
 
 const user = require(`./../models/user.models`);
+const spawn = require('spawn-password');
 
 exports.createUser = (req, res, next) => {
-    let token = ;
+    let token = spawn.spawn();
     user.create({
         name: req.body.name,
         contact: {
