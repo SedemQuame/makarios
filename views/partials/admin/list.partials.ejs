@@ -42,9 +42,12 @@
                         Oud-Turnhout
                       </td>
                       <td class="text-primary">
-                        <button class="btn btn-sm btn-primary btn-round">
-                            <i class="material-icons">favorite</i> With Icon
+                        <button type="button" class="btn btn-sm btn-primary btn-round" data-toggle="modal" data-target="#exampleModal">
+                            <i class="material-icons">visibility</i> view
                         </button>
+                        <button class="btn btn-sm btn-danger btn-round">
+                          <i class="material-icons">delete</i> suspend
+                      </button>
                       </td>
                     </tr>
                     <tr>
@@ -61,9 +64,12 @@
                         Sinaai-Waas
                       </td>
                       <td class="text-primary">
-                        <button class="btn btn-sm btn-primary btn-round">
-                            <i class="material-icons">favorite</i> With Icon
+                        <button type="button" class="btn btn-sm btn-primary btn-round" data-toggle="modal" data-target="#exampleModal">
+                            <i class="material-icons">visibility</i> view
                         </button>
+                        <button class="btn btn-sm btn-danger btn-round">
+                          <i class="material-icons">delete</i> suspend
+                      </button>
                       </td>
                     </tr>
                     <tr>
@@ -80,9 +86,12 @@
                         Baileux
                       </td>
                       <td class="text-primary">
-                        <button class="btn btn-sm btn-primary btn-round">
-                            <i class="material-icons">favorite</i> With Icon
+                        <button type="button" class="btn btn-sm btn-primary btn-round" data-toggle="modal" data-target="#exampleModal">
+                            <i class="material-icons">visibility</i> view
                         </button>
+                        <button class="btn btn-sm btn-danger btn-round">
+                          <i class="material-icons">delete</i> suspend
+                      </button>
                       </td>
                     </tr>
                     <tr>
@@ -99,9 +108,12 @@
                         Overland Park
                       </td>
                       <td class="text-primary">
-                        <button class="btn btn-sm btn-primary btn-round">
-                            <i class="material-icons">favorite</i> With Icon
+                        <button type="button" class="btn btn-sm btn-primary btn-round" data-toggle="modal" data-target="#exampleModal">
+                            <i class="material-icons">visibility</i> view
                         </button>
+                        <button class="btn btn-sm btn-danger btn-round">
+                          <i class="material-icons">delete</i> suspend
+                      </button>
                       </td>
                     </tr>
                     <tr>
@@ -118,28 +130,12 @@
                         Feldkirchen in Kärnten
                       </td>
                       <td class="text-primary">
-                        <button class="btn btn-sm btn-primary btn-round">
-                            <i class="material-icons">favorite</i> With Icon
+                        <button type="button" class="btn btn-sm btn-primary btn-round" data-toggle="modal" data-target="#exampleModal">
+                            <i class="material-icons">visibility</i> view
                         </button>
-                      </td>
-                    </tr>
-                    <tr>
-                      <td>
-                        6
-                      </td>
-                      <td>
-                        Mason Porter
-                      </td>
-                      <td>
-                        Chile
-                      </td>
-                      <td>
-                        Gloucester
-                      </td>
-                      <td class="text-primary">
-                        <button class="btn btn-sm btn-primary btn-round">
-                            <i class="material-icons">favorite</i> With Icon
-                        </button>
+                        <button class="btn btn-sm btn-danger btn-round">
+                          <i class="material-icons">delete</i> suspend
+                      </button>
                       </td>
                     </tr>
                   </tbody>
@@ -151,3 +147,5 @@
       </div>
     </div>
   </div>
+
+  <%- include(`./../modal/modal.partials.ejs`)%>
