@@ -1,12 +1,12 @@
-<%- include(`./partials/head.partials.ejs`)%>
-<%- include(`./partials/nav/nav_primary.partials.ejs`)%>
-<%- include(`./partials/nav/nav_secondary.partials.ejs`)%>
+<%-include(`./partials/head.partials.ejs`)%>
+<div class="wrapper">
+    <%-include(`./partials/nav/sidebar.partials.ejs`)%>
+    <div class="main-panel">
+        <%-include(`./partials/nav/top.partials.ejs`, {title: `Admin List`})%>
+        <!-- buttons -->
+        <%-include(`./partials/admin/menu.partials.ejs`)%>
+        <%-include(`./partials/admin/list.partials.ejs`)%>
+    </div>
+</div>
 
-<!-- buttons -->
-<%- include(`./partials/admin/menu.partials.ejs`)%>
-
-<!-- lists -->
-<%- include(`./partials/admin/list.partials.ejs`)%>
-
-
-<%- include(`./partials/footer.partials.ejs`)%>
+<%-include(`./partials/footer.partials.ejs`)%>

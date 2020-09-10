@@ -1,10 +1,15 @@
 <%- include(`./partials/head.partials.ejs`)%>
-<%- include(`./partials/nav/nav_primary.partials.ejs`)%>
-<%- include(`./partials/nav/nav_secondary.partials.ejs`)%>
+<div class="wrapper">
+    <%- include(`./partials/nav/sidebar.partials.ejs`)%>
+    <div class="main-panel">
+        <%- include(`./partials/nav/top.partials.ejs`, {title: `Dashboard`})%>
+        <%- include(`./partials/dashboard/info.partials.ejs`)%>
+    </div>
+</div>
 
 <!-- dashboard info pane -->
 <div class="container">
-    <%- include(`./partials/dashboard/info.partials.ejs`)%>
+    <!-- <%- include(`./partials/dashboard/info.partials.ejs`)%> -->
 </div>
 
 <%- include(`./partials/footer.partials.ejs`)%>

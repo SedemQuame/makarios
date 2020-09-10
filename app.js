@@ -7,6 +7,7 @@ const bodyParser = require(`body-parser`);
 const path = require(`path`);
 const dotenv = require(`dotenv`);
 const mongoose = require(`mongoose`);
+const reload = require(`reload`);
 
 // ========================================== configure environment variables  ========================================== //
 if(!process.env.MODE){
@@ -59,9 +60,16 @@ app.use((req, res)=>{
 // spinning up a server
 const server = http.createServer(app);
 const port = process.env.PORT || process.env.MAKARIOS_PORT;
-server.listen(port, () => {
-    console.log(`Application started on port ${port}`);
-    console.log(`http://localhost:${port}/`);
+
+// Reload code here
+reload(app).then(function (reloadReturned) {
+    // reloadReturned is documented in the returns API in the README
+   
+    // Reload started, start web server
+    server.listen(port, () => {
+        console.log(`Application started on port ${port}`);
+        console.log(`http://localhost:${port}/`);
+    });
+}).catch(function (err) {
+console.error('Reload could not start, could not start server/sample app', err)
 });
-
-
