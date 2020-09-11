@@ -1,5 +1,55 @@
 <div class="row">
     <div class="col-12">
-        <button type="button" class="btn btn-outline-primary">New Admin</button>
+        <button type="button" class="btn btn-outline-primary" data-toggle="modal" data-target="#newAdmin">New Admin</button>
+        <div class="modal fade bd-example-modal-lg" id="newAdmin" tabindex="-1" role="dialog" aria-labelledby="myLargeModalLabel" aria-hidden="true">
+            <div class="modal-dialog modal-md">
+              <div class="modal-content">
+                    <div class="modal-header">
+                        <h5 class="modal-title" id="exampleModalLabel">Create New Admin</h5>
+                        <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+                            <span aria-hidden="true">&times;</span>
+                        </button>
+                    </div>
+                    <div class="modal-body">
+                        <form class="form" method="" action="">
+                            <p class="description text-center">Or Be Classical</p>
+                            <div class="card-body">
+    
+                                <div class="form-group bmd-form-group">
+                                    <div class="input-group">
+                                      <div class="input-group-prepend">
+                                        <div class="input-group-text"><i class="material-icons">face</i></div>
+                                      </div>
+                                      <input type="text" class="form-control" placeholder="First Name...">
+                                    </div>
+                                </div>
+    
+                                <div class="form-group bmd-form-group">
+                                    <div class="input-group">
+                                      <div class="input-group-prepend">
+                                        <div class="input-group-text"><i class="material-icons">email</i></div>
+                                      </div>
+                                      <input type="text" class="form-control" placeholder="Email...">
+                                    </div>
+                                </div>
+    
+                                <div class="form-group bmd-form-group">
+                                    <div class="input-group">
+                                      <div class="input-group-prepend">
+                                        <div class="input-group-text"><i class="material-icons">lock_outline</i></div>
+                                      </div>
+                                      <input type="password" placeholder="Password..." class="form-control">
+                                    </div>
+                                </div>
+                            </div>
+                        </form>
+                    </div>
+                    <div class="modal-footer">
+                        <button type="button" class="btn btn-secondary" data-dismiss="modal">Close</button>
+                        <button type="button" class="btn btn-primary">Save changes</button>
+                    </div>
+              </div>
+            </div>
+        </div>
     </div>
 </div>

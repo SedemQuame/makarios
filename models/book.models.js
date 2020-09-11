@@ -33,7 +33,7 @@ const bookSchema = new mongoose.Schema({
     category: {type: String},
     keywords: {type: String},
     numberOfPages: {type: Number},
-    about: {type: String},
+    // about: {type: String},
     supportedLanguages: [{type: String}],
     book,
     date,

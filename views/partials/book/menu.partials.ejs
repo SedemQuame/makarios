@@ -1,5 +1,83 @@
 <div class="row">
     <div class="col-12">
-        <button type="button" class="btn btn-outline-primary">New Book</button>
+        <button type="button" class="btn btn-outline-primary" data-toggle="modal" data-target="#newBook">New Book</button>
+        <div class="modal fade bd-example-modal-lg" id="newBook" tabindex="-1" role="dialog" aria-labelledby="myLargeModalLabel" aria-hidden="true">
+            <div class="modal-dialog modal-md">
+              <div class="modal-content">
+                    <div class="modal-header">
+                        <h5 class="modal-title" id="exampleModalLabel">Create New Book</h5>
+                        <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+                            <span aria-hidden="true">&times;</span>
+                        </button>
+                    </div>
+                    <div class="modal-body">
+                        <form class="form" method="" action="">
+                            <div class="card-body">
+                                <div class="form-group">
+                                    <label for="isbnNumber">Isbn Number</label>
+                                    <input type="text" class="form-control" id="isbnNumber" placeholder="Isbn Number ... ">
+                                </div>
+
+                                <div class="form-group">
+                                    <label for="bookTitle">Book Title</label>
+                                    <input type="text" class="form-control" id="bookTitle" placeholder="Book Title ... ">
+                                </div>
+
+                                <div class="form-group">
+                                    <label for="bookAuthor">Book Author</label>
+                                    <input type="text" class="form-control" id="bookAuthor" placeholder="Book Author ... ">
+                                </div>
+
+                                <div class="form-group">
+                                    <label for="bookDescription">Book Description</label>
+                                    <textarea class="form-control" id="bookDescription" rows="3" placeholder="Book Description ..."></textarea>
+                                </div>
+
+                                <div class="form-group">
+                                    <label for="bookEdition">Book Edition</label>
+                                    <input type="text" class="form-control" id="bookEdition" placeholder="Book Edition ... ">
+                                </div>
+
+                                <div class="form-group">
+                                    <label for="bookKeyword">Book Keyword</label>
+                                    <input type="text" class="form-control" id="bookKeyword" placeholder="Book Keyword ... separated by commas">
+                                </div>                                
+
+                                <div class="form-group">
+                                    <label for="bookCategory">Book Category</label>
+                                    <select class="form-control" data-style="btn btn-link" id="bookCategory">
+                                      <option>1</option>
+                                      <option>2</option>
+                                      <option>3</option>
+                                      <option>4</option>
+                                      <option>5</option>
+                                    </select>
+                                </div>
+
+                                <div class="form-group">
+                                    <label for="supportedLanguages">Supported Languages</label>
+                                    <input type="text" class="form-control" id="supportedLanguages" placeholder="Supported Languages ... separated by commas">
+                                </div>    
+                                
+                                <div class="fileinput fileinput-new text-center" data-provides="fileinput">
+                                    <div class="fileinput-new thumbnail">
+                                        <img src="http://style.anu.edu.au/_anu/4/images/placeholders/person_8x10.png" rel="nofollow" alt="...">
+                                    </div>
+                                    <div class="fileinput-preview fileinput-exists thumbnail"></div>
+                                    <div>
+                                        <input class="btn btn-raised btn-round btn-default btn-file" type="file" name="..." />
+                                        <a href="#pablo" class="btn btn-danger btn-round fileinput-exists" data-dismiss="fileinput"><i class="fa fa-times"></i> Remove</a>
+                                    </div>
+                                </div>
+                            </div>
+                        </form>
+                    </div>
+                    <div class="modal-footer">
+                        <button type="button" class="btn btn-secondary" data-dismiss="modal">Close</button>
+                        <button type="button" class="btn btn-primary">Save changes</button>
+                    </div>
+              </div>
+            </div>
+        </div>
     </div>
 </div>

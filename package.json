@@ -1,22 +1,35 @@
 {
-    "name": "makarios",
-    "version": "1.0.0",
-    "description": "Makarios node api.",
-    "main": "app.js",
-    "scripts": {
-        "start": "node app.js"
-    },
-    "keywords": [],
-    "author": "",
-    "license": "ISC",
-    "dependencies": {
-        "body-parser": "^1.19.0",
-        "dotenv": "^8.2.0",
-        "ejs": "^3.1.5",
-        "express": "^4.17.1",
-        "mongoose": "^5.9.29",
-        "passport-local-mongoose": "^6.0.1",
-        "reload": "^3.1.0",
-        "spawn-password": "^1.0.1"
-    }
+  "name": "makarios",
+  "version": "1.0.0",
+  "description": "Makarios node api.",
+  "main": "app.js",
+  "scripts": {
+    "start": "node app.js"
+  },
+  "keywords": [],
+  "author": "",
+  "license": "ISC",
+  "dependencies": {
+    "body-parser": "^1.19.0",
+    "dotenv": "^8.2.0",
+    "ejs": "^3.1.5",
+    "express": "^4.17.1",
+    "mongoose": "^5.9.29",
+    "passport-local-mongoose": "^6.0.1",
+    "reload": "^3.1.0",
+    "spawn-password": "^1.0.1"
+  },
+  "devDependencies": {
+    "eslint": "^7.8.1",
+    "eslint-config-airbnb-base": "^14.2.0",
+    "eslint-plugin-import": "^2.22.0"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/SedemQuame/makarios.git"
+  },
+  "bugs": {
+    "url": "https://github.com/SedemQuame/makarios/issues"
+  },
+  "homepage": "https://github.com/SedemQuame/makarios#readme"
 }
