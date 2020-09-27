@@ -15,11 +15,21 @@ module.exports = app => {
     });
 
     app.get(`/adminList`, (req, res) => {
-        res.render(path.resolve(__dirname, `./../views/adminList.views.ejs`))
+        res.render(path.resolve(__dirname, `./../views/adminList.views.ejs`), {
+            message: null,
+            adminDocs: null,
+            accessLevel: null,
+            adminInfo: null
+        })
     });
 
     app.get(`/adminData`, (req, res) => {
-        res.render(path.resolve(__dirname, `./../views/adminData.views.ejs`))
+        res.render(path.resolve(__dirname, `./../views/adminData.views.ejs`), {
+            message: null,
+            adminDocs: null,
+            accessLevel: null,
+            adminInfo: null
+        })
     });
 
     app.get(`/bookList`, (req, res) => {

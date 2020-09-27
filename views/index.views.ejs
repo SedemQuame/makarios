@@ -1,8 +1,12 @@
 <%- include(`./partials/head.partials.ejs`)%>
+<!-- if error occurs in authenticating user, print error message -->
+<%if(message != null){%>
+    <div class="alert alert-danger text-center" role="alert">
+        <%= message %>
+    </div>
+<%}%>
 <div class="row h-100" style="margin-top: 10vh;">
     <!-- first time user signup. -->
-    
-
     <!-- will act like the login page. -->
     <div class="col-12 offset-md-3 col-md-6 offset-lg-4 col-lg-4 my-auto">
         <%- include(`./partials/login.partials.ejs`)%>

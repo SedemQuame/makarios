@@ -9,22 +9,22 @@
     <div class="card-body px-lg-5 pt-0">
   
       <!-- Form -->
-      <form class="text-center" style="color: #757575;" action="#!">
+      <form method="POST" class="text-left" style="color: #757575;" action="/adminLogin">
   
         <!-- Email -->
         <div class="md-form">
-          <input type="email" id="materialLoginFormEmail" class="form-control">
-          <label for="materialLoginFormEmail">E-mail</label>
+          <label for="adminEmail">E-mail</label>
+          <input name="adminEmail" type="email" id="adminEmail" class="form-control">
         </div>
   
         <!-- Password -->
         <div class="md-form">
-          <input type="password" id="materialLoginFormPassword" class="form-control">
-          <label for="materialLoginFormPassword">Password</label>
+          <label for="adminPassword">Password</label>
+          <input ame="adminPassword" type="password" id="adminPassword" class="form-control">
         </div>
     
         <!-- Sign in button -->
-        <a class="btn btn-outline-info btn-rounded btn-block my-4 waves-effect z-depth-0" href="/dashboard">Sign in</a>
+        <input class="btn btn-outline-info btn-rounded btn-block my-4 waves-effect z-depth-0" type="submit" value="Sign in">
   
         <div class="text-center">
           <!-- Forgot password -->

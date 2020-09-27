@@ -2,6 +2,13 @@
 // ================================ creating application routes ===================================//
 module.exports = app => {
     const book = require(`../controllers/book.controllers`);
+    // create book meta data
+    app.route(`/uploadBook`)
+        .post(book.upload);
+
+    app.route(`/upload/:status`)
+        .get(book.uploadStatus);
+
     //  view book meta data
     app.route(`/viewAllBookMetaData`)
         .get(book.viewAllBookMetaData);
@@ -17,7 +24,7 @@ module.exports = app => {
     app.route(`/deleteBook/:bookId`)
         .post(book.deleteBook);
 
-    // upload book routes (todo)
-    // app.route(`/uploadBookMetaData/:bookId`)
-    //     .post(book.uploadBookMetaData);        
+    // // upload book data (todo)
+    // app.route(`/changeBookMetaData/:bookId`)
+    //     .post(book.changeBookMetaData);        
 };

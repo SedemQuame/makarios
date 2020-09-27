@@ -1,10 +1,16 @@
 <div class="content">
     <div class="container-fluid">
       <!-- buttons -->
+      <%if(message != null){%>
+        <div class="alert alert-success text-center" role="alert">
+            <%= message %>
+        </div>
+      <%}%>
       <%-include(`./../admin/menu.partials.ejs`)%>
     </div>
     
     <div class="container-fluid">
+
       <div class="row">
         <div class="col-md-12">
           <div class="card">

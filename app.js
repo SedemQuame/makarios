@@ -8,20 +8,47 @@ const path = require(`path`);
 const dotenv = require(`dotenv`);
 const mongoose = require(`mongoose`);
 const reload = require(`reload`);
+const session = require(`express-session`);
+const MongoDBStore = require('connect-mongodb-session')(session);
 
 // ========================================== configure environment variables  ========================================== //
 if(!process.env.MODE){
     const result = dotenv.config({path: `./config/.env`});
     if (result.error) {
         throw result.error;
+        // app.use(function(req, res){
+        //     res.status(404).render('connectionErr.ejs', {loggedIn: false});
+        // });
     }
 }
 
 // ========================================== custom packages  ========================================== //
 const db = require(`./config/db.config`);
+const store = new MongoDBStore({
+    uri: db.url,
+    collection: `sessions`,
+    expires: 1000 * 60 * 60 * 24 * 7 // 1 week
+});
+
+// creating video routes
+const router = express.Router();
+
 
 // ========================================== create express middleware  ========================================== //
 const app = express();
+// passing router to app
+app.use(router);
+// parse requests of content-type - application/x-www-form-urlencoded
+app.use(bodyParser.urlencoded({ extended: true }));
+// parse requests of content-type - application/json
+app.use(bodyParser.json());
+// plug express session as part of middleware
+app.use(session({
+    secret: process.env.SESSION_SECRET_KEY,
+    resave: false,
+    saveUninitialized: false,
+    store
+}));
 // set view engine to ejs
 app.set("view engine", "ejs");
 // set up static file middleware
@@ -42,7 +69,10 @@ connectDB();
 
 // ========================================== app routes ============================================ //
 app.all(`/`, (req, res)=>{
-    res.render(`index.views.ejs`);
+    res.render(`index.views.ejs`, {
+        message: null,
+        admin: null,
+    });
 });
 
 //====================================== registering required routes ========================================//

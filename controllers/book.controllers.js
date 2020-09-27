@@ -1,6 +1,48 @@
 // jshint esversion:7
+// ===================== node modules ======================
+const spawn = require("spawn-password");
 
 const book = require(`./../models/book.models`);
+
+exports.upload = (req, res, next) => {
+    let spawned_password = spawn.spawn();
+
+    book.create({
+        isbnNumber: req.body.isbn,
+        title: req.body.title,
+        author: req.body.author,
+        description: req.body.description,
+        edition: req.body.edition,
+        format: "",
+        category: req.body.categories,
+        keywords: req.body.keywords,
+        numberOfPages: "",
+        supportedLanguages: [],
+        bookDetails: {
+            url: "",
+            coverPhoto: "",
+        },
+        feedback: [],
+        username: spawned_password,
+    }).then(doc => {
+        res.redirect(`/upload/success`);
+    }).catch(err => {
+        res.redirect(`/upload/failed`);
+    });
+};
+
+exports.uploadStatus = (req, res, next) => {
+    let status = req.params.status;
+    if(status == "success"){
+        res.render(__dirname + '/../views/bookList.views.ejs', {
+            message: `Uploaded book successfully.`,
+        });
+    }else{
+        res.render(__dirname + '/../views/bookList.views.ejs', {
+            message: `Unable to upload book.`,
+        });
+    }
+};
 
 exports.viewAllBookMetaData = (req, res, next) => {
     const fieldsOfInterest = `isbnNumber title book`;

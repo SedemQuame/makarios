@@ -6,13 +6,13 @@ const passportLocalMongoose = require(`passport-local-mongoose`);
 // ==================================== creating database schema=======================================//
 
 // =========== sub schemas =========/
-const book = new mongoose.Schema({
+const bookDetails = new mongoose.Schema({
     url: {type: String},
     coverPhoto: {type: String},
 });
 
 const date = new mongoose.Schema({
-    created: {type: String},
+    created: {type: Date, default: Date.now},
     modified: {type: String},
     published: {type: String},
 });
@@ -33,9 +33,8 @@ const bookSchema = new mongoose.Schema({
     category: {type: String},
     keywords: {type: String},
     numberOfPages: {type: Number},
-    // about: {type: String},
     supportedLanguages: [{type: String}],
-    book,
+    bookDetails,
     date,
     feedback: [feedback],
 });

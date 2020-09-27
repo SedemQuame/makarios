@@ -9,5 +9,8 @@ module.exports = app => {
 
     // login to admin account
     app.route(`/adminLogin`)
-        .post(admin.adminLogin);         
+        .post(admin.adminLogin);
+        
+    app.route(`/adminList/:status`)
+        .get(admin.adminList);
 };

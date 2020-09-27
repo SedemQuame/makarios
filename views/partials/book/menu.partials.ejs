@@ -11,53 +11,53 @@
                         </button>
                     </div>
                     <div class="modal-body">
-                        <form class="form" method="" action="">
+                        <form class="form" method="POST" action="/uploadBook">
                             <div class="card-body">
                                 <div class="form-group">
                                     <label for="isbnNumber">Isbn Number</label>
-                                    <input type="text" class="form-control" id="isbnNumber" placeholder="Isbn Number ... ">
+                                    <input type="text" class="form-control" id="isbnNumber" name="isbn">
                                 </div>
 
                                 <div class="form-group">
                                     <label for="bookTitle">Book Title</label>
-                                    <input type="text" class="form-control" id="bookTitle" placeholder="Book Title ... ">
+                                    <input type="text" class="form-control" id="bookTitle" name="title">
                                 </div>
 
                                 <div class="form-group">
                                     <label for="bookAuthor">Book Author</label>
-                                    <input type="text" class="form-control" id="bookAuthor" placeholder="Book Author ... ">
-                                </div>
-
-                                <div class="form-group">
-                                    <label for="bookDescription">Book Description</label>
-                                    <textarea class="form-control" id="bookDescription" rows="3" placeholder="Book Description ..."></textarea>
+                                    <input type="text" class="form-control" id="bookAuthor" name="author">
                                 </div>
 
                                 <div class="form-group">
                                     <label for="bookEdition">Book Edition</label>
-                                    <input type="text" class="form-control" id="bookEdition" placeholder="Book Edition ... ">
+                                    <input type="text" class="form-control" id="bookEdition" name="edition">
                                 </div>
 
                                 <div class="form-group">
                                     <label for="bookKeyword">Book Keyword</label>
-                                    <input type="text" class="form-control" id="bookKeyword" placeholder="Book Keyword ... separated by commas">
+                                    <input type="text" class="form-control" id="bookKeyword" name="keywords">
                                 </div>                                
 
                                 <div class="form-group">
                                     <label for="bookCategory">Book Category</label>
-                                    <select class="form-control" data-style="btn btn-link" id="bookCategory">
-                                      <option>1</option>
-                                      <option>2</option>
-                                      <option>3</option>
-                                      <option>4</option>
-                                      <option>5</option>
+                                    <select class="form-control" data-style="btn btn-link" id="bookCategory" name="categories">
+                                      <option value="">1</option>
+                                      <option value="">2</option>
+                                      <option value="">3</option>
+                                      <option value="">4</option>
+                                      <option value="">5</option>
                                     </select>
                                 </div>
 
                                 <div class="form-group">
-                                    <label for="supportedLanguages">Supported Languages</label>
-                                    <input type="text" class="form-control" id="supportedLanguages" placeholder="Supported Languages ... separated by commas">
-                                </div>    
+                                    <label for="supportedLanguages">Supported Languages ... separated by commas</label>
+                                    <input type="text" class="form-control" id="supportedLanguages" name="supportedLanguages">
+                                </div>   
+                                
+                                <div class="form-group">
+                                    <label for="bookDescription">Book Description</label>
+                                    <textarea class="form-control" id="bookDescription" rows="3" name="description"></textarea>
+                                </div>
                                 
                                 <div class="fileinput fileinput-new text-center" data-provides="fileinput">
                                     <div class="fileinput-new thumbnail">
@@ -70,11 +70,9 @@
                                     </div>
                                 </div>
                             </div>
+
+                            <input class="btn btn-primary btn-block" type="submit" value="Save Changes">
                         </form>
-                    </div>
-                    <div class="modal-footer">
-                        <button type="button" class="btn btn-secondary" data-dismiss="modal">Close</button>
-                        <button type="button" class="btn btn-primary">Save changes</button>
                     </div>
               </div>
             </div>
