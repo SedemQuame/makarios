@@ -2,7 +2,7 @@
 // ===================== node modules ======================
 const bcrypt = require('bcrypt');
 const spawn = require("spawn-password");
-const SALT_ROUNDS = 12;
+const SALT_ROUNDS = 9;
 // =================== custom modules ======================
 const route = require(`../models/admin.models`);
 const { DocumentProvider } = require('mongoose');
@@ -12,8 +12,8 @@ sgMail.setApiKey(process.env.SENDGRID_API_KEY);
 const admin = require(`./../models/admin.models`);
 
 exports.registerAdmin = (req, res, next) => {
-    console.log(req.body);
     let spawned_password = spawn.spawn();
+    console.log(spawned_password);
     bcrypt.hash(spawned_password, SALT_ROUNDS, (err, hash) => {
         if(err){
             res.render(__dirname + '/../views/adminList.views.ejs', {
@@ -24,13 +24,11 @@ exports.registerAdmin = (req, res, next) => {
         admin.create({
             name: req.body.adminName,
             password: hash,
-            contact: {
-                email: req.body.adminEmail,
-                phoneNumber: req.body.adminPhone,
-            },
+            email: req.body.adminEmail,
+            phoneNumber: req.body.adminPhone,
             authenticationToken: req.body.authenticationToken,
             accessLevel: req.body.accessLevel,
-            username: spawned_password,
+            username: spawn.spawn(),
         }).then((doc) => {
             res.redirect(`/adminList/success`);
         }).catch((err) => {
@@ -40,9 +38,11 @@ exports.registerAdmin = (req, res, next) => {
 };
 
 exports.adminLogin = (req, res, next) => {
-    admin.findOne({contact: {email : req.body.adminEmail}}).then((admin) => {
-        req.session.admin = admin;
-        bcrypt.compare(req.body.adminPassword, admin.password, function(err, result) {
+    admin.findOne({email : req.body.adminEmail}).then((admin) => {
+        console.log(admin);
+        bcrypt.compare(req.body.adminPassword, admin.password, (err, result) => {
+            console.log(err);
+            console.log(result);
             if(err){
                 res.render(`${__dirname}/../views/index.views.ejs`, {
                     message: `Server side error. Please try again later`,
@@ -53,11 +53,20 @@ exports.adminLogin = (req, res, next) => {
                 // return;
             }
             if(result){
+                // store info in sessions
+                req.session.admin = admin;
                 res.render(__dirname + '/../views/dashboard.views.ejs', {
                     message: null,
                     admin,
                     accessLevel: (req.session.admin).accessLevel,
                     adminInfo: req.session.admin,
+                });
+            }else{
+                res.render(`${__dirname}/../views/index.views.ejs`, {
+                    message: `Incorrect admin credentials.`,
+                    admin: null,
+                    accessLevel: null,
+                    adminInfo: null,
                 });
             }
         });

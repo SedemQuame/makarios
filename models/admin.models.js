@@ -7,14 +7,14 @@ const passportLocalMongoose = require(`passport-local-mongoose`);
 
 // =========== sub schemas =========/
 const contactSchema = new mongoose.Schema({
-    email: {type: String},
-    phoneNumber: {type: String},
+
 });
 
 const adminSchema = new mongoose.Schema({
     name: {type: String},
     password: {type: String},
-    contact: {type: contactSchema},
+    email: {type: String},
+    phoneNumber: {type: String},
     authenticationToken: {type: String},
     accessLevel: {type: String},
 });
