@@ -6,17 +6,15 @@
           <div class="card card-stats">
             <div class="card-header card-header-warning card-header-icon">
               <div class="card-icon">
-                <i class="material-icons">content_copy</i>
+                <i class="material-icons">fiber_new</i>
               </div>
-              <p class="card-category">Used Space</p>
-              <h3 class="card-title">49/50
-                <small>GB</small>
-              </h3>
+              <p class="card-category">Total Users</p>
+              <h3 class="card-title">12,593</h3>
             </div>
             <div class="card-footer">
               <div class="stats">
-                <i class="material-icons text-danger">warning</i>
-                <a href="javascript:;">Get More Space...</a>
+                <i class="material-icons">fiber_new</i>
+                <a class="" href="javascript:;">View user list</a>
               </div>
             </div>
           </div>
@@ -25,14 +23,15 @@
           <div class="card card-stats">
             <div class="card-header card-header-success card-header-icon">
               <div class="card-icon">
-                <i class="material-icons">store</i>
+                <i class="material-icons">people</i>
               </div>
-              <p class="card-category">Revenue</p>
-              <h3 class="card-title">$34,245</h3>
+              <p class="card-category">Active Users</p>
+              <h3 class="card-title">8,593</h3>
             </div>
             <div class="card-footer">
               <div class="stats">
-                <i class="material-icons">date_range</i> Last 24 Hours
+                <i class="material-icons">people</i>
+                <a class="" href="javascript:;">View user list</a>
               </div>
             </div>
           </div>
@@ -41,14 +40,15 @@
           <div class="card card-stats">
             <div class="card-header card-header-danger card-header-icon">
               <div class="card-icon">
-                <i class="material-icons">info_outline</i>
+                <i class="material-icons">book</i>
               </div>
-              <p class="card-category">Fixed Issues</p>
+              <p class="card-category">Total Books</p>
               <h3 class="card-title">75</h3>
             </div>
             <div class="card-footer">
               <div class="stats">
-                <i class="material-icons">local_offer</i> Tracked from Github
+                <i class="material-icons">book</i>
+                <a class="" href="javascript:;">View book list</a>
               </div>
             </div>
           </div>
@@ -57,20 +57,22 @@
           <div class="card card-stats">
             <div class="card-header card-header-info card-header-icon">
               <div class="card-icon">
-                <i class="fa fa-twitter"></i>
+                <i class="material-icons">new_releases</i>
               </div>
-              <p class="card-category">Followers</p>
-              <h3 class="card-title">+245</h3>
+              <p class="card-category">New Books</p>
+              <h3 class="card-title">245</h3>
             </div>
             <div class="card-footer">
               <div class="stats">
-                <i class="material-icons">update</i> Just Updated
+                <i class="material-icons">new_releases</i>
+                <a class="" href="javascript:;">Just Updated</a>
               </div>
             </div>
           </div>
         </div>
       </div>
-      <div class="row">
+
+      <!-- <div class="row">
         <div class="col-md-4">
           <div class="card card-chart">
             <div class="card-header card-header-success">
@@ -120,8 +122,9 @@
             </div>
           </div>
         </div>
-      </div>
-      <div class="row">
+      </div> -->
+
+      <!-- <div class="row">
         <div class="col-lg-6 col-md-12">
           <div class="card">
             <div class="card-header card-header-tabs card-header-primary">
@@ -411,41 +414,9 @@
             </div>
           </div>
         </div>
-      </div>
+      </div> -->
+    
     </div>
   </div>
-  <footer class="footer">
-    <div class="container-fluid">
-      <nav class="float-left">
-        <ul>
-          <li>
-            <a href="https://www.creative-tim.com">
-              Creative Tim
-            </a>
-          </li>
-          <li>
-            <a href="https://creative-tim.com/presentation">
-              About Us
-            </a>
-          </li>
-          <li>
-            <a href="http://blog.creative-tim.com">
-              Blog
-            </a>
-          </li>
-          <li>
-            <a href="https://www.creative-tim.com/license">
-              Licenses
-            </a>
-          </li>
-        </ul>
-      </nav>
-      <div class="copyright float-right">
-        &copy;
-        <script>
-          document.write(new Date().getFullYear())
-        </script>, made with <i class="material-icons">favorite</i> by
-        <a href="https://www.creative-tim.com" target="_blank">Creative Tim</a> for a better web.
-      </div>
-    </div>
-  </footer>
+
+  <%- include(`../footer_tag.partials.ejs`) %>
