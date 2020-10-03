@@ -10,6 +10,9 @@ module.exports = app => {
     // login to admin account
     app.route(`/adminLogin`)
         .post(admin.adminLogin);
+
+    //display admin page
+    app.get(`/adminList`, admin.getAdminList);
         
     app.route(`/adminList/:status`)
         .get(admin.adminList);

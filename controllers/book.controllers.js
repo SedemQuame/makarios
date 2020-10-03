@@ -104,3 +104,12 @@ exports.deleteBook = (req, res, next) => {
 // exports.uploadBookMetaData = (req, res, next) => {
 
 // };
+
+exports.getBookList = (req, res, next) => {
+    book.find().then(list => {
+        console.log(list);
+        res.render(__dirname + `./../views/bookList.views.ejs`, {bookDocs: list});
+    }).catch(err => {
+        res.render(__dirname + `./../views/bookList.views.ejs`, {bookDocs: null});
+    });
+};

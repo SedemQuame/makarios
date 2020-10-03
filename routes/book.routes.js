@@ -26,5 +26,7 @@ module.exports = app => {
 
     // // upload book data (todo)
     // app.route(`/changeBookMetaData/:bookId`)
-    //     .post(book.changeBookMetaData);        
+    //     .post(book.changeBookMetaData);   
+    
+    app.get(`/bookList`, book.getBookList);
 };

@@ -99,3 +99,22 @@ exports.adminList = (req, res, next) => {
         });
     }
 };
+
+exports.getAdminList = (req, res) => {
+    admin.find().then(list => {
+        console.log(list);
+        res.render(__dirname + `/../views/adminList.views.ejs`, {
+            message: null,
+            adminDocs: list,
+            accessLevel: null,
+            adminInfo: null
+        });
+    }).catch(err => {
+        res.render(__dirname + `/../views/adminList.views.ejs`, {
+            message: `Could not return user data.`,
+            adminDocs: null,
+            accessLevel: null,
+            adminInfo: null
+        });
+    });
+};

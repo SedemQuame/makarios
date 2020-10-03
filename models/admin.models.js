@@ -6,9 +6,6 @@ const passportLocalMongoose = require(`passport-local-mongoose`);
 // ==================================== creating database schema=======================================//
 
 // =========== sub schemas =========/
-const contactSchema = new mongoose.Schema({
-
-});
 
 const adminSchema = new mongoose.Schema({
     name: {type: String},
@@ -17,6 +14,7 @@ const adminSchema = new mongoose.Schema({
     phoneNumber: {type: String},
     authenticationToken: {type: String},
     accessLevel: {type: String},
+    booksUploaded: [{type: String}],
 });
 
 adminSchema.plugin(passportLocalMongoose);
