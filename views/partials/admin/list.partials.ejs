@@ -24,16 +24,20 @@
                   <table class="table">
                     <thead class=" text-primary">
                       <th>ID</th>
-                      <th class="text-center">Name</th>
+                      <th class="text-center">Person</th>
+                      <th></th>
                       <th class="text-center">Access Level</th>
                       <th class="text-center">Contact</th>
-                      <th class="text-center">Status</th>
+                      <!-- <th class="text-center">Status</th> -->
                       <th class="">Action</th>
                     </thead>
                     <tbody>
                       <% for(let i = 0; i < adminDocs.length; i++){ %>
                         <tr>
                           <td class="text-center"><%=(i + 1)%></td>
+                          <td>
+                            <img style="width: 40px; height: 40px;" class="" src="/img/gray.png" alt="user_profile_picture">
+                          </td>
                           <td class="text-center"><%=adminDocs[i].name%></td>
                           <td class="text-center"><%=adminDocs[i].accessLevel%></td>
                           <td class="text-center">
@@ -42,12 +46,12 @@
                               <li><%=adminDocs[i].phoneNumber%></li>
                             </ul>
                           </td>
-                          <td class="text-center"></td>
+                          <!-- <td class="text-center"></td> -->
                           <td class="text-primary">
-                            <button type="button" class="btn btn-sm btn-primary btn-round" data-toggle="modal" data-target="#exampleModal">
+                            <button type="button" class="btn btn-sm btn-primary btn-round" data-toggle="modal" data-target="#exampleModal" value="<%= adminDocs[i]._id %>">
                                 <i class="material-icons">visibility</i> view
                             </button>
-                            <button class="btn btn-sm btn-danger btn-round">
+                            <button class="btn btn-sm btn-danger btn-round" value="<%= adminDocs[i]._id %>">
                               <i class="material-icons">delete</i> suspend
                           </button>
                           </td>
@@ -57,7 +61,11 @@
                   </table>
                 </div>
               <%}else{%>
-                <%- include(`./../notifier/empty_notifier.partials.ejs`, {img: `img/illustrations/box.svg`}) %>
+                <%- include(`./../notifier/empty_notifier.partials.ejs`, {
+                  img: `img/illustrations/box.svg`,
+                  title: `Seems lonely in here.`,
+                  subtitle: `Click "New Admin" to add an admin.`
+                }) %>
               <%}%>
             </div>
           </div>

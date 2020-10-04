@@ -6,21 +6,20 @@ const book = require(`./../models/book.models`);
 
 exports.upload = (req, res, next) => {
     let spawned_password = spawn.spawn();
-
     book.create({
         isbnNumber: req.body.isbn,
         title: req.body.title,
         author: req.body.author,
         description: req.body.description,
         edition: req.body.edition,
-        format: "",
         category: req.body.categories,
         keywords: req.body.keywords,
-        numberOfPages: "",
         supportedLanguages: [],
         bookDetails: {
-            url: "",
+            url: req.body.upload_url_holder,
             coverPhoto: "",
+            numberOfPages: "",
+            format: "",
         },
         feedback: [],
         username: spawned_password,
@@ -34,12 +33,22 @@ exports.upload = (req, res, next) => {
 exports.uploadStatus = (req, res, next) => {
     let status = req.params.status;
     if(status == "success"){
-        res.render(__dirname + '/../views/bookList.views.ejs', {
-            message: `Uploaded book successfully.`,
+        book.find().then(list => {
+            // console.log(list);
+            res.render(__dirname + `./../views/bookList.views.ejs`, {
+                bookDocs: list,
+                message: `Uploaded book successfully.`
+            });
+        }).catch(err => {
+            res.render(__dirname + `./../views/bookList.views.ejs`, {
+                bookDocs: null,
+                message: `Unable to upload book.`
+            });
         });
     }else{
-        res.render(__dirname + '/../views/bookList.views.ejs', {
-            message: `Unable to upload book.`,
+        res.render(__dirname + `./../views/bookList.views.ejs`, {
+            bookDocs: null,
+            message: `Unable to upload book.`
         });
     }
 };
@@ -107,7 +116,7 @@ exports.deleteBook = (req, res, next) => {
 
 exports.getBookList = (req, res, next) => {
     book.find().then(list => {
-        console.log(list);
+        // console.log(list);
         res.render(__dirname + `./../views/bookList.views.ejs`, {bookDocs: list});
     }).catch(err => {
         res.render(__dirname + `./../views/bookList.views.ejs`, {bookDocs: null});

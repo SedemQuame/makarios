@@ -11,6 +11,7 @@ const adminSchema = new mongoose.Schema({
     name: {type: String},
     password: {type: String},
     email: {type: String},
+    photo_url: {type: String},
     phoneNumber: {type: String},
     authenticationToken: {type: String},
     accessLevel: {type: String},

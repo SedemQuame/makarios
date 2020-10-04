@@ -38,10 +38,10 @@
                              <td class="text-center"><%=bookDocs[i].category%></td>
                              <td class="text-center"><%=bookDocs[i].edition%></td>
                              <td class="text-primary">
-                                <button  type="button" class="btn btn-sm btn-primary btn-round" data-toggle="modal" data-target="#exampleModal">
+                                <button  type="button" class="btn btn-sm btn-primary btn-round" data-toggle="modal" data-target="#exampleModal"  value="<%= bookDocs[i]._id %>">
                                 <i class="material-icons">visibility</i> view
                                 </button>
-                                <button class="btn btn-sm btn-dark btn-round">
+                                <button class="btn btn-sm btn-dark btn-round" value="<%= bookDocs[i]._id %>">
                                 <i class="material-icons">highlight_off</i> hide
                                 </button>
                              </td>
@@ -51,7 +51,11 @@
                     </table>
                  </div>
                <%}else{%>
-                  <%- include(`./../notifier/empty_notifier.partials.ejs`, {img: `/public/img/illustrations/bookshelves.svg`}) %>
+                  <%- include(`./../notifier/empty_notifier.partials.ejs`, {
+                     img: `/img/illustrations/bookshelves.svg`,
+                     title: `Seems lonely in here.`,
+                     subtitle: `Click "New Book" to add a book.`
+                  }) %>
                 <%}%>
               </div>
            </div>

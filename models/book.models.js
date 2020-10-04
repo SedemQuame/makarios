@@ -9,12 +9,14 @@ const passportLocalMongoose = require(`passport-local-mongoose`);
 const bookDetails = new mongoose.Schema({
     url: {type: String},
     coverPhoto: {type: String},
+    numberOfPages: {type: Number},
+    format: {type: String}
 });
 
 const date = new mongoose.Schema({
     created: {type: Date, default: Date.now},
     modified: {type: String},
-    published: {type: String},
+    published: {type: String}
 });
 
 const feedback = new mongoose.Schema({
@@ -29,14 +31,12 @@ const bookSchema = new mongoose.Schema({
     author: {type: String},
     description: {type: String},
     edition: {type: String},
-    format: {type: String},
     category: {type: String},
     keywords: {type: String},
-    numberOfPages: {type: Number},
     supportedLanguages: [{type: String}],
     bookDetails,
     date,
-    feedback: [feedback],
+    feedback: [feedback]
 });
 
 bookSchema.plugin(passportLocalMongoose);

@@ -84,11 +84,20 @@ exports.adminLogin = (req, res, next) => {
 exports.adminList = (req, res, next) => {
     let status = req.params.status;
     if(status == "success"){
-        res.render(__dirname + '/../views/adminList.views.ejs', {
-            message: `Created admin account successfully.`,
-            adminDocs: null,
-            accessLevel: null,
-            adminInfo: null,
+        admin.find().then(list => {
+            res.render(__dirname + `/../views/adminList.views.ejs`, {
+                message: `Created admin account successfully.`,
+                adminDocs: list,
+                accessLevel: null,
+                adminInfo: null
+            });
+        }).catch(err => {
+            res.render(__dirname + `./../views/bookList.views.ejs`, {
+                message: `Unable to create admin account.`,
+                adminDocs: [],
+                accessLevel: null,
+                adminInfo: null
+            });
         });
     }else{
         res.render(__dirname + '/../views/adminList.views.ejs', {
@@ -103,16 +112,25 @@ exports.adminList = (req, res, next) => {
 exports.getAdminList = (req, res) => {
     admin.find().then(list => {
         console.log(list);
-        res.render(__dirname + `/../views/adminList.views.ejs`, {
-            message: null,
-            adminDocs: list,
-            accessLevel: null,
-            adminInfo: null
+        admin.find().then(list => {
+            res.render(__dirname + `/../views/adminList.views.ejs`, {
+                message: null,
+                adminDocs: list,
+                accessLevel: null,
+                adminInfo: null
+            });
+        }).catch(err => {
+            res.render(__dirname + `./../views/bookList.views.ejs`, {
+                message: null,
+                adminDocs: [],
+                accessLevel: null,
+                adminInfo: null
+            });
         });
     }).catch(err => {
         res.render(__dirname + `/../views/adminList.views.ejs`, {
             message: `Could not return user data.`,
-            adminDocs: null,
+            adminDocs: [],
             accessLevel: null,
             adminInfo: null
         });
